@@ -24,28 +24,28 @@ unsigned int GenRandNum(unsigned int nRange)
 	nRes = ((unsigned int)(nNum) % (nRange));
 	return nRes;
 }
-
-int print_ary(int* pa)
+//Creating a Printer Function
+int print_ary(int* print)
 {
 	int i;
 	for (i = 0; i < SIZE; i++)
 	{
-		printf("%5d", pa[i]);
+		printf("%5d", print[i]);
 	}
 	printf("\n");
 	return 0;
 }
-
+//Generate Ascending Functions
 void ascending_order(int* num)
 {
 	int i, j;
 	int temp;
 
-	for (i = 0; i < SIZE; i++)
+	for (i = 0; i < SIZE; i++) // Specify a number to compare
 	{
-		for (j = 0; j < SIZE; j++)
+		for (j = 0; j < SIZE; j++) // Compare to other numbers
 		{
-			if (num[i] < num[j])
+			if (num[i] < num[j]) //Replace place if the number to compare is less than the other number
 			{
 				temp = num[i];
 				num[i] = num[j];
@@ -58,17 +58,18 @@ void ascending_order(int* num)
 	
 	return;
 }
-
+// Generating descending functions
 void descending_order(int* num)
 {
 	int i, j;
 	int temp;
 
-	for (i = 0; i < SIZE; i++)
+	for (i = 0; i < SIZE; i++) // Specify a number to compare
 	{
-		for (j = 0; j < SIZE; j++)
+		for (j = 0; j < SIZE; j++) // Compare to other numbers
+
 		{
-			if (num[i] > num[j])
+			if (num[i] > num[j]) //Replace place if the number you compare is greater than the other number
 			{
 				temp = num[i];
 				num[i] = num[j];
@@ -87,12 +88,14 @@ int main()
 	// Seed assignment
 	GenRandSeed();
 
+	// Initialize variables
 	int nRange = START_NUM;
 	int RNum[SIZE]={0};
 	int* pt = RNum;
 	int i;
 	int type;
 
+	//Enter any integer in the array
 	for (i = 0; i < SIZE; i++)
 	{
 		pt[i] = GenRandNum(nRange);
@@ -109,17 +112,17 @@ int main()
 		{
 			break;
 		}
-		else if (type == Ascending_order)
+		else if (type == Ascending_order) // When the number 1 is entered, the ascending function is called.
 		{
 			ascending_order(pt);
 		}
-		else if (type == Descending_order)
+		else if (type == Descending_order) //When the number 2 is entered, the ascending function is called.
 		{
 			descending_order(pt);
 		}
 		else
 		{
-			printf("\nThis is not a valid input. Please re-enter.\n");
+			printf("\nThis is not a valid input. Please re-enter.\n"); 
 		}
 	}
 	printf("Exit the program\n");

@@ -24,67 +24,89 @@ unsigned int GenRandNum(unsigned int nRange)
 	return nRes;
 }
 
-int matrix_mul(int n1[LINE][ROW], int n2[ROW][LINE])
+//Creating a Printer Function
+void print_arry(int p_arry[LINE][LINE])
 {
-	int x, y, z;
-	int Res[LINE][LINE];
-
+	int x, y;
+	int(*print)[LINE] = p_arry;
+	
 	for (x = 0; x < LINE; x++)
 	{
 		for (y = 0; y < LINE; y++)
 		{
-			Res[x][y] = {0};
-			for (z = 0; z < ROW; z++)
-			{
-				Res[x][y] += n1[x][z] * n2[z][y];
-			}
-		}
-	}
-
-	for (x = 0; x < LINE; x++)
-	{
-		for (y = 0; y < LINE; y++)
-		{
-			printf("%d\t", Res[x][y]);
+			printf("%d\t", print[x][y]);
 		}
 		printf("\n");
 	}
+
+	printf("\n");
+	return;
+}
+
+// Functions that multiply and output matrices
+int matrix_mul(int m1[LINE][ROW], int m2[ROW][LINE])
+{
+	int x, y, z;
+	int Res[LINE][LINE];
+	int (* R_pt)[LINE] = Res;
+	int(*m1_pt)[ROW] = m1;
+	int(*m2_pt)[LINE] = m2;
+
+	for (x = 0; x < LINE; x++) // Specifying rows in an array
+	{
+		for (y = 0; y < LINE; y++) // Specifying line in an array
+		{
+			R_pt[x][y] = {0};
+			for (z = 0; z < ROW; z++)
+			{
+				R_pt[x][y] += m1_pt[x][z] * m2_pt[z][y]; // Store calculated values in the specified array space
+			}
+		}
+	}
+	print_arry(R_pt);
+
 	return 0;
 }
 
 int main()
 {
+	// Seed assignment
 	GenRandSeed();
 
+	// Initialize variables
 	int nRange = START_NUM;
 	int matrix_1[LINE][ROW];
 	int matrix_2[ROW][LINE];
 	int i, j;
-	int x, y;
+	int(*m_1_pt)[ROW] = matrix_1;
+	int(*m_2_pt)[LINE] = matrix_2;
 
 	printf("Matrix 1\n");
+	//Set the initial value of matrix_1 with any integer
 	for (i = 0; i < LINE; i++)
 	{
 		for (j = 0; j < ROW; j++)
 		{
-			matrix_1[i][j] = (float)GenRandNum(nRange);
-			printf("%d\t", matrix_1[i][j]);
+			m_1_pt[i][j] = (float)GenRandNum(nRange);
+			printf("%d\t", m_1_pt[i][j]);
 		}
 		printf("\n");
 	}
 	printf("Matrix 2\n");
+	//Set the initial value of matrix_2 with any integer
 	for (i = 0; i < ROW; i++)
 	{
 		for (j = 0; j < LINE; j++)
 		{
-			matrix_2[i][j] = (float)GenRandNum(nRange);
-			printf("%d\t", matrix_2[i][j]);
+			m_2_pt[i][j] = (float)GenRandNum(nRange);
+			printf("%d\t", m_2_pt[i][j]);
 		}
 		printf("\n");
 	}
 
 	printf("Calculation result\n=>\n");
-	matrix_mul(matrix_1, matrix_2);
+	// Recall matrix multiplication function
+	matrix_mul(m_1_pt, m_2_pt);
 
 	return 0;
 }

@@ -50,21 +50,23 @@ float Variance(float RNum[ARRAY_SIZE])
 	float res = 0;
 	float sum = 0;
 	int i;
+	float* pt = RNum;
 
 	for (i = 0; i < SIZE; i++)
 	{
-		sum += (RNum[i] - Average(RNum)) * (RNum[i] - Average(RNum));
+		sum += (pt[i] - Average(pt)) * (pt[i] - Average(pt));
 	}
 	res = sum / SIZE;
 	return res;
 }
 
 //Generate a function to obtain standard deviations
-float Standard_deviation(float Rnum[ARRAY_SIZE])
+float Standard_deviation(float RNum[ARRAY_SIZE])
 {
 	float res = 0;
+	float* pt = RNum;
 
-	res = sqrt(Variance(Rnum));
+	res = sqrt(Variance(pt));
 	return res;
 }
 
@@ -125,7 +127,7 @@ int main(void)
 			printf("\nThis is not a valid input. Please re-enter.\n");
 		}
 	}
-	printf("Exit the program");
+	printf("Exit the program\n");
 
 	system("pause");
 	return 0;
