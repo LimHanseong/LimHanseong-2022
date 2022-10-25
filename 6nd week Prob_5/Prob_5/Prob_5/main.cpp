@@ -102,7 +102,7 @@ int main()
 	Rate = ((double)hit / ARRY_SIZE) * change_percent;
 
 	// Output hit rate to second decimal place
-	printf("accuracy rate: %.2lf%%", Rate);
+	printf("accuracy rate: %.2lf%%\n", Rate);
 
 	system("pause");
 	return 0;
