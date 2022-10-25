@@ -1,0 +1,6 @@
+﻿  main.cpp
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 보조 파일\Project3\main.cpp(12,1): warning C4005: 'RAND_MAX': 매크로 재정의
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\stdlib.h(348): message : 'RAND_MAX'의 이전 정의를 참조하십시오.
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 보조 파일\Project3\main.cpp(52,9): warning C4101: 'f_x_2' :참조되지 않은 지역 변수입니다.
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 보조 파일\Project3\main.cpp(50,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  Project3.vcxproj -> C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 보조 파일\x64\Debug\Project3.exe
