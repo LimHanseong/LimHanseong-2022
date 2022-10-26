@@ -11,21 +11,21 @@
 #define VARIANCE 2
 #define STANDARD_DEVIATION 3
 
-// Generate a seed number using time clock information
-void GenRandSeed()
+// Initialize seed numbers using time clock information
+void InitializationRandSeed()
 {
 	// Generate random numbers using time seeds
 	srand((unsigned int)(time(NULL)));
 	return;
 }
 
-// Random number generation
-unsigned int GenRandNum(unsigned int nRange)
+// Random number creation
+unsigned int CreatRandNum(unsigned int nRange)
 {
-	unsigned int nRes = 0;
-	unsigned int nNum = rand();
-	nRes = ((unsigned int)(nNum) % (nRange));
-	return nRes;
+	unsigned int res = 0;
+	unsigned int num = rand();
+	res = ((unsigned int)(num) % (nRange));
+	return res;
 }
 
 //Generate Mean Calculation Function
@@ -73,7 +73,7 @@ float Standard_deviation(float RNum[ARRAY_SIZE])
 int main(void)
 {
 	// Seed assignment
-	GenRandSeed();
+	InitializationRandSeed();
 
 	// Initialize variables
 	int nRange = START_NUM;
@@ -89,7 +89,7 @@ int main(void)
 	// Create a random number and save it to an array
 	for (i = 0; i < SIZE; i++)
 	{
-		RNum[i] = (float)GenRandNum(nRange);
+		RNum[i] = (float)CreatRandNum(nRange);
 	}
 	// Show generated random numbers
 	printf("Generated number:");

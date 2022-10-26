@@ -15,15 +15,15 @@
 #define change_percent 100
 
 // Generate a seed number using time clock information
-void GenRandSeed()
+void InitializationRandSeed()
 {
 	// Generate random numbers using time seeds
 	srand((unsigned int)(time(NULL)));
 	return;
 }
 
-// Random number generation
-double GenRandNum(double Range)
+// Random number creation
+double CreatRandNum(double Range)
 {
 	double Res = 0;
 	double Num = rand();
@@ -34,7 +34,7 @@ double GenRandNum(double Range)
 int main()
 {
 	// Seed number assignment
-	GenRandSeed();
+	InitializationRandSeed();
 	// Declare and initialize variables
 	int Range = RAND_MAX;
 	double X_1[ARRY_SIZE];
@@ -51,8 +51,8 @@ int main()
 	// A function that obtains the value of K through the operation, finds 100 Zs for the condition, and stores them in the array
 	for (;;)
 	{
-		double r_1 = GenRandNum(Range);
-		double r_2 = GenRandNum(Range);
+		double r_1 = CreatRandNum(Range);
+		double r_2 = CreatRandNum(Range);
 		
 		V = sqrt(2 / exp(1.0)) * (2 * r_2 - 1); // Calculation process
 		Z = V / r_1;

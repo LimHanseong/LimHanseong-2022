@@ -8,21 +8,21 @@
 #define Ascending_order 1
 #define Descending_order 2
 
-// Generate a seed number using time clock information
-void GenRandSeed()
+// Initialize seed numbers using time clock information
+void InitializationRandSeed()
 {
 	// Generate random numbers using time seeds
 	srand((unsigned int)(time(NULL)));
 	return;
 }
 
-// Random number generation
-unsigned int GenRandNum(unsigned int nRange)
+// Random number creation
+unsigned int CreatRandNum(unsigned int nRange)
 {
-	unsigned int nRes = 0;
-	unsigned int nNum = rand();
-	nRes = ((unsigned int)(nNum) % (nRange));
-	return nRes;
+	unsigned int res = 0;
+	unsigned int num = rand();
+	res = ((unsigned int)(num) % (nRange));
+	return res;
 }
 //Creating a Printer Function
 int print_ary(int* print)
@@ -86,7 +86,7 @@ void descending_order(int* num)
 int main()
 {
 	// Seed assignment
-	GenRandSeed();
+	InitializationRandSeed();
 
 	// Initialize variables
 	int nRange = START_NUM;
@@ -98,7 +98,7 @@ int main()
 	//Enter any integer in the array
 	for (i = 0; i < SIZE; i++)
 	{
-		pt[i] = GenRandNum(nRange);
+		pt[i] = CreatRandNum(nRange);
 	}
 	print_ary(pt);
 

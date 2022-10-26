@@ -6,22 +6,21 @@
 #define ROW 4
 #define START_NUM 100
 
-// Generate a seed number using time clock information
-void GenRandSeed()
+// Initialize seed numbers using time clock information
+void InitializationRandSeed()
 {
 	// Generate random numbers using time seeds
 	srand((unsigned int)(time(NULL)));
 	return;
 }
 
-// Random number generation
-unsigned int GenRandNum(unsigned int nRange)
+// Random number creation
+unsigned int CreatRandNum(unsigned int nRange)
 {
-	
-	unsigned int nRes = 0;
-	unsigned int nNum = rand();
-	nRes = ((unsigned int)(nNum) % (nRange));
-	return nRes;
+	unsigned int res = 0;
+	unsigned int num = rand();
+	res = ((unsigned int)(num) % (nRange));
+	return res;
 }
 
 //Creating a Printer Function
@@ -71,7 +70,7 @@ int matrix_mul(int m1[LINE][ROW], int m2[ROW][LINE])
 int main()
 {
 	// Seed assignment
-	GenRandSeed();
+	InitializationRandSeed();
 
 	// Initialize variables
 	int nRange = START_NUM;
@@ -87,7 +86,7 @@ int main()
 	{
 		for (j = 0; j < ROW; j++)
 		{
-			m_1_pt[i][j] = (float)GenRandNum(nRange);
+			m_1_pt[i][j] = (float)CreatRandNum(nRange);
 			printf("%d\t", m_1_pt[i][j]);
 		}
 		printf("\n");
@@ -98,7 +97,7 @@ int main()
 	{
 		for (j = 0; j < LINE; j++)
 		{
-			m_2_pt[i][j] = (float)GenRandNum(nRange);
+			m_2_pt[i][j] = (float)CreatRandNum(nRange);
 			printf("%d\t", m_2_pt[i][j]);
 		}
 		printf("\n");
