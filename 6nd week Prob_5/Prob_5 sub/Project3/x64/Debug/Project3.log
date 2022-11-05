@@ -1,4 +1,4 @@
 ﻿  main.cpp
 C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 sub\Project3\main.cpp(12,1): warning C4005: 'RAND_MAX': 매크로 재정의
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\ucrt\stdlib.h(348): message : 'RAND_MAX'의 이전 정의를 참조하십시오.
-C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 sub\Project3\main.cpp(100): error C4700: 초기화되지 않은 'i' 지역 변수를 사용했습니다.
+  Project3.vcxproj -> C:\Users\pc\Documents\GitHub\LimHanseong-2022\6nd week Prob_5\Prob_5 sub\x64\Debug\Project3.exe

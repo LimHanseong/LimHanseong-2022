@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\중간프로젝트\Project2\Project2\main.cpp(100,30): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\중간프로젝트\Project2\Project2\main.cpp(143,30): warning C4244: '=': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Project2.vcxproj -> C:\Users\pc\Documents\GitHub\LimHanseong-2022\중간프로젝트\Project2\x64\Debug\Project2.exe

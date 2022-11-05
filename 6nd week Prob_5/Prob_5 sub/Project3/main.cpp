@@ -30,32 +30,6 @@ double CreatRandNum(double Range)
 	Res = Num / Range;   // Divide by maximum of rand
 	return Res;
 }
-// Function to obtain X_1 using probability variable relational expressions
-double X_1_calculation(double Z_arry[ARRY_SIZE])
-{
-	double X_1[ARRY_SIZE];
-	int i;
-
-	for (i = 0; i < ARRY_SIZE; i++)
-	{
-		X_1[i] = AVERAGE_1 + Z_arry[i] * STD_DEVIATION_1;
-	}
-	2019
-	return X_1;
-}
-// Function to obtain X_1 using probability variable relational expressions
-double X_2_calculation(double Z_arry[ARRY_SIZE])
-{
-	double X_2[ARRY_SIZE];
-	int i;
-
-	for (i = 0; i < ARRY_SIZE; i++)
-	{
-		X_2[i] = AVERAGE_2 + Z_arry[i] * STD_DEVIATION_2;
-	}
-
-	return X_2;
-}
 
 int main()
 {
@@ -99,8 +73,11 @@ int main()
 	}
 
 	// Function to obtain X_1 and X_2 using probability variable relational expressions
-	X_1[i] = { X_1_calculation(Z_arry)};
-	X_2[i] = {X_2_calculation(Z_arry)};
+	for (i = 0; i < ARRY_SIZE; i++)
+	{
+		X_1[i] = AVERAGE_1 + Z_arry[i] * STD_DEVIATION_1;
+		X_2[i] = AVERAGE_2 + Z_arry[i] * STD_DEVIATION_2;
+	}
 	
 	// Substituting probability variables into normal distribution probability density functions to obtain results
 	for (i = 0; i < ARRY_SIZE; i++)
