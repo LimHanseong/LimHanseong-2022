@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\User\Documents\GitHub\LimHanseong-2022\8nd week\Report\main.cpp(25,25): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Documents\GitHub\LimHanseong-2022\8nd week\Report\main.cpp(49,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  Report.vcxproj -> C:\Users\User\Documents\GitHub\LimHanseong-2022\8nd week\Report\x64\Debug\Report.exe
