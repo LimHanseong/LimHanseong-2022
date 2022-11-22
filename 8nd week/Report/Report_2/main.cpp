@@ -23,13 +23,13 @@ int main()
 		split = strtok(NULL, "\\");
 	}
 	printf("Original file path: ");
-	for (i = 0; i < count1- Extension_Location; i++)
+	for (i = 0; i < count1 - Extension_Location; i++)
 	{
 		printf("%s\\", truncated_path[i]);
 	}
 	printf("%s\n", truncated_path[count1 - Extension_Location]);
 
-	split = strtok(truncated_path[count1- Extension_Location], ".");
+	split = strtok(truncated_path[count1 - Extension_Location], ".");
 	int count2 = 0;
 	while (split != NULL)
 	{
@@ -39,7 +39,7 @@ int main()
 	}
 
 	printf("File name: %s, Extension name: %s\n", ext_split[0], ext_split[1]);
-	
+
 	strcpy(ext, ext_split[Extension_Location]);
 	strcpy(truncated_path[count1 - Extension_Location], "test2.");
 	strcat(truncated_path[count1 - Extension_Location], ext);
@@ -47,7 +47,7 @@ int main()
 	printf("Changed path: ");
 	for (i = 0; i < count1 - Extension_Location; i++)
 	{
-		printf("%s\\",truncated_path[i]);
+		printf("%s\\", truncated_path[i]);
 	}
 	printf("%s", truncated_path[count1 - Extension_Location]);
 

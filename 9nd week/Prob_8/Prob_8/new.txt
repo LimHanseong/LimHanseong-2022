@@ -1,0 +1,4 @@
+Integer: 23
+Real number: 11.432000
+Character: R
+String: rating

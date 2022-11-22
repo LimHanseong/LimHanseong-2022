@@ -1,0 +1,4 @@
+﻿  소스.cpp
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\9nd week\Prob_1\Prob_1\소스.cpp(67,9): warning C4101: 'j' :참조되지 않은 지역 변수입니다.
+C:\Users\pc\Documents\GitHub\LimHanseong-2022\9nd week\Prob_1\Prob_1\소스.cpp(67,6): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+  Prob_1.vcxproj -> C:\Users\pc\Documents\GitHub\LimHanseong-2022\9nd week\Prob_1\x64\Debug\Prob_1.exe
