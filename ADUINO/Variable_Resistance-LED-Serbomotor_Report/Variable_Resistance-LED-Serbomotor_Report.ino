@@ -12,15 +12,16 @@
 #define NumMinPoten 1
 #define NumMaxPoten 2
 
+// Declare global variables (pin numbering)
 int nGreenPin = 3;
 int nBluePin = 4;
 int nYellowPin = 5;
 int nServoPin = 6;
 int nPotenPin = A0;
 int nDelay = 20;
+Servo mServoMotor; // Servo motor declaration
 
-Servo mServoMotor;
-
+// Setting the device
 void setup()
 {
   pinMode(nGreenPin, OUTPUT);
@@ -30,6 +31,7 @@ void setup()
   mServoMotor.attach(nServoPin);
 }
 
+// Mapping function
 int Maping(int Value, int *pValue)
 {
   int nPWM;
@@ -38,63 +40,68 @@ int Maping(int Value, int *pValue)
   return nPWM;
 }
 
+// Functions that turn on and off diodes
 void YellowOn()
 {
   digitalWrite(nYellowPin, HIGH);
   Serial.print("nYellowPin: ON\n");
-  delay(nDelay); // Wait for 100 millisecond(s)
+  delay(nDelay); // Wait for 20 millisecond(s)
 }
 
 void YellowOff()
 {
   digitalWrite(nYellowPin, LOW);
   Serial.print("nYellowPin: OFF\n");
-  delay(nDelay); // Wait for 100 millisecond(s)
+  delay(nDelay); 
 }
 
 void BlueOn()
 {
   digitalWrite(nBluePin, HIGH);
   Serial.print("BlueLED: ON\n");
-  delay(nDelay); // Wait for 100 millisecond(s)
+  delay(nDelay); 
 }
 
 void BlueOff()
 {
   digitalWrite(nBluePin, LOW);
   Serial.print("BlueLED: OFF\n");
-  delay(nDelay); // Wait for 100 millisecond(s)
+  delay(nDelay); 
 }
 
 void GreenOn()
 {
   digitalWrite(nGreenPin, HIGH);
   Serial.print("GreenLED: ON\n");
-  delay(nDelay); // Wait for 100 millisecond(s)
+  delay(nDelay); 
 }
 
 void GreenOff()
 {
   digitalWrite(nGreenPin, LOW);
   Serial.print("BlueLED: OFF\n");
-  delay(nDelay); // Wait for 100 millisecond(s)
+  delay(nDelay); 
 }
 
 void loop()
 {
+  // Declare and initialize variables
   int readValue = analogRead(nPotenPin);
   int Reference_value[mSize] = {MinPoten, MaxPoten, MinAngle, MaxAngle};
   int *pValue = Reference_value;
   int nPWM = Maping(readValue, pValue);
   
+  // Output measured values
   Serial.print("Analog: ");
   Serial.println(readValue);
   Serial.print("PWM: ");
   Serial.println(nPWM);
   
+  // Move the servo motor according to the values
   mServoMotor.write(nPWM);
-  delay(15);
+  delay(nDelay);
   
+  // To run differently according to potentiometer movement
   if (nPWM < Right)
   {
     YellowOff();
