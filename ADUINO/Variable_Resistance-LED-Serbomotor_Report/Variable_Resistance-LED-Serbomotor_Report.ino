@@ -5,8 +5,8 @@
 #define MinPoten 0
 #define MaxPoten 1023
 #define mSize 5
-#define Left 80
-#define Right 100
+#define Right 80
+#define Left 100
 #define NumMinAngle 4
 #define NumMaxAngle 3
 #define NumMinPoten 1
@@ -38,6 +38,48 @@ int Maping(int Value, int *pValue)
   return nPWM;
 }
 
+void YellowOn()
+{
+  digitalWrite(nYellowPin, HIGH);
+  Serial.print("nYellowPin: ON\n");
+  delay(nDelay); // Wait for 100 millisecond(s)
+}
+
+void YellowOff()
+{
+  digitalWrite(nYellowPin, LOW);
+  Serial.print("nYellowPin: OFF\n");
+  delay(nDelay); // Wait for 100 millisecond(s)
+}
+
+void BlueOn()
+{
+  digitalWrite(nBluePin, HIGH);
+  Serial.print("BlueLED: ON\n");
+  delay(nDelay); // Wait for 100 millisecond(s)
+}
+
+void BlueOff()
+{
+  digitalWrite(nBluePin, LOW);
+  Serial.print("BlueLED: OFF\n");
+  delay(nDelay); // Wait for 100 millisecond(s)
+}
+
+void GreenOn()
+{
+  digitalWrite(nGreenPin, HIGH);
+  Serial.print("GreenLED: ON\n");
+  delay(nDelay); // Wait for 100 millisecond(s)
+}
+
+void GreenOff()
+{
+  digitalWrite(nGreenPin, LOW);
+  Serial.print("BlueLED: OFF\n");
+  delay(nDelay); // Wait for 100 millisecond(s)
+}
+
 void loop()
 {
   int readValue = analogRead(nPotenPin);
@@ -53,40 +95,22 @@ void loop()
   mServoMotor.write(nPWM);
   delay(15);
   
-  if (nPWM < Left)
+  if (nPWM < Right)
   {
-    digitalWrite(nYellowPin, LOW);
-    Serial.print("nYellowPin: OFF\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
-    digitalWrite(nBluePin, LOW);
-    Serial.print("BlueLED: OFF\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
-    digitalWrite(nGreenPin, HIGH);
-    Serial.print("BlueLED: ON\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
+    YellowOff();
+    BlueOff();
+    GreenOn();
   }
-  else if(nPWM > Right)
+  else if(nPWM > Left)
   {
-    digitalWrite(nYellowPin, HIGH);
-    Serial.print("nYellowPin: ON\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
-    digitalWrite(nBluePin, LOW);
-    Serial.print("BlueLED: OFF\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
-    digitalWrite(nGreenPin, LOW);
-    Serial.print("BlueLED: OFF\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
+    YellowOn();
+    BlueOff();
+    GreenOff();
   }
   else
   {
-    digitalWrite(nYellowPin, LOW);
-    Serial.print("nYellowPin: OFF\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
-    digitalWrite(nBluePin, HIGH);
-    Serial.print("BlueLED: ON\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
-    digitalWrite(nGreenPin, LOW);
-    Serial.print("BlueLED: OFF\n");
-    delay(nDelay); // Wait for 100 millisecond(s)
+    YellowOff();
+    BlueOn();
+    GreenOff();
   }
 }
